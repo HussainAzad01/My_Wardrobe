@@ -29,7 +29,9 @@
         <div class="icons">
             <div id="search-btn" class="fas fa-search"></div>
             <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="/shop/cart" class="fas fa-shopping-cart">
+            <span class="badge"><span id="cart">0</span></span>
+            </a>
             <div id="login-btn" class="fas fa-user"></div>
         </div>
 
@@ -44,6 +46,7 @@
             <a href="#blogs">blogs</a>
         </nav>
     </div>
+
 
 </header>
 
@@ -173,7 +176,7 @@
                         genre: {{i.sub_category}}
                     </h3>
                     <div class="price">₹{{i.product_price}}</div>
-                    <a href="#" class="btn">add to cart</a>
+                    <button id="pr{{i.id}}" class="btn cart">add to cart</button>
                 </div>
             </div>
             {% endfor %}
@@ -512,7 +515,7 @@
 <!--</div>-->
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <!-- custom js file link  -->
 <script src="{% static 'shop/script.js' %}"></script>
 

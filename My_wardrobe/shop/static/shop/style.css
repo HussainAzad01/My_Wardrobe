@@ -730,9 +730,28 @@ section{
     height:10rem;
 }
 
+/* manually added css */
 
+.badge{
+    position: relative;
+    top: -20px;
+    right: auto;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: #0288d1;
+    color: white;
+    width: 6px;
+    height: 23px;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
 
-
+#login-btn{
+    margin-left: 0px;
+    }
 
 
 

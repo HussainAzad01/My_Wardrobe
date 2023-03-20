@@ -16,6 +16,7 @@ def index(request):
     # newArrivals() function
     new_arrivals = newArrivals(all_dates, from_date)
     # logic for new_arrivals ends here
+    print("Hello")
 
     all_prods = [[Fiction_category], [nonFiction_category]]
     params = {'products': products, 'all_prods': all_prods, 'new_arrivals1': new_arrivals[:int(len(new_arrivals) / 2)],
@@ -35,6 +36,9 @@ def create(request):
         image="shop/images/The Art Of Peace.jpg"
     )
 
+
+def cart(request):
+    return render(request, 'shop/cart.html')
 
 def about(request):
     return render(request, 'shop/about.html')
