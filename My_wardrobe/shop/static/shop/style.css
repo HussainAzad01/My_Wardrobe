@@ -740,13 +740,13 @@ section{
     border-radius: 50%;
     background: #0288d1;
     color: white;
-    width: 6px;
-    height: 23px;
+    width: 5px;
+    height: 18px;
     display: inline-flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 17px;
+    font-size: 12px;
 }
 
 #login-btn{
