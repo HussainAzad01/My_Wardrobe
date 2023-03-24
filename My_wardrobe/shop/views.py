@@ -39,6 +39,9 @@ def create(request):
 def cart(request):
     return render(request, 'shop/cart.html')
 
+def wishlist(request):
+    return render(request, 'shop/wishlist.html')
+
 def about(request):
     return render(request, 'shop/about.html')
 
