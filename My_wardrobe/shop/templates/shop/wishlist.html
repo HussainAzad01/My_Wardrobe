@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>Wishlist</title>
     <link rel="icon" href="{% static 'shop/logo4.png'%}" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -17,7 +17,7 @@
     margin-left: 14px;
     }
     .header .header-1{
-    padding: 2rem 9%;
+    padding: 1.5rem 9%;
     }
 </style>
 <body>
@@ -28,6 +28,10 @@
     <div class="header-1">
 
         <a href="/shop" class="logo"><i class="fas fa-book"></i> PickaBook</a>
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search with in your wishlist here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
         <div class="icons">
             <a href="/shop/cart" class="fas fa-shopping-cart"></a>
             <a href="/shop" class="fas fa-home"></a>
@@ -38,7 +42,7 @@
 
     <div class="header-2">
         <nav class="navbar">
-            <a href="#">About Us</a>
+            <a href="#">you are looking at your Wishlist</a>
         </nav>
     </div>
 
