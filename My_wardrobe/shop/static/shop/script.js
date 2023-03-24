@@ -26,25 +26,25 @@ window.onscroll = () =>{
 
 }
 
-window.onload = () =>{
+//window.onload = () =>{
+//
+//  if(window.scrollY > 80){
+//    document.querySelector('.header .header-2').classList.add('active');
+//  }else{
+//    document.querySelector('.header .header-2').classList.remove('active');
+//  }
+//
+//  fadeOut();
+//
+//}
 
-  if(window.scrollY > 80){
-    document.querySelector('.header .header-2').classList.add('active');
-  }else{
-    document.querySelector('.header .header-2').classList.remove('active');
-  }
+//function loader(){
+//  document.querySelector('.loader-container').classList.add('active');
+//}
 
-  fadeOut();
-
-}
-
-function loader(){
-  document.querySelector('.loader-container').classList.add('active');
-}
-
-function fadeOut(){
-  setTimeout(loader, 4000);
-}
+//function fadeOut(){
+//  setTimeout(loader, 4000);
+//}
 
 var swiper = new Swiper(".books-slider", {
   loop:true,
@@ -157,4 +157,24 @@ var swiper = new Swiper(".blogs-slider", {
       slidesPerView: 3,
     },
   },
+});
+
+if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+
+var idstr = this.id.toString();
+if (cart[idstr] != undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else{
+cart[idstr] = 1;
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
 });
