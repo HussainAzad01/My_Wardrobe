@@ -742,6 +742,7 @@ section{
     color: white;
     width: 5px;
     height: 18px;
+    left-margin: -1.5rem;
     display: inline-flex;
     text-align: center;
     justify-content: center;
