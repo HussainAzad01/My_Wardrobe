@@ -16,7 +16,6 @@ def index(request):
     # newArrivals() function
     new_arrivals = newArrivals(all_dates, from_date)
     # logic for new_arrivals ends here
-    print("Hello")
 
     all_prods = [[Fiction_category], [nonFiction_category]]
     params = {'products': products, 'all_prods': all_prods, 'new_arrivals1': new_arrivals[:int(len(new_arrivals) / 2)],
@@ -29,11 +28,11 @@ def create(request):
         IsFiction=False,
         category="Non-Fiction",
         sub_category="Educational",
-        product_name="The Art Of Peace",
-        product_price=229,
-        product_desc="For over a century, Sun Tzu's writings in The Art of War a have been studied by millions of people from business leaders to military strategists. It occurred to me that Sun Tzu's writings not only provide guidance in warfare strategies, but also for individuals who are battling their own personal demons and desire greater peace.",
-        publish_date=datetime.datetime(2023, 3, 2),
-        image="shop/images/The Art Of Peace.jpg"
+        product_name="The Reluctant Carer",
+        product_price=199,
+        product_desc=" ",
+        publish_date=datetime.datetime(2023, 3, 24),
+        image="shop/images/The snakehead.jpg"
     )
 
 
