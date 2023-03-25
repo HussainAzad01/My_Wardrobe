@@ -6,7 +6,6 @@ from .models import Product, FeatProduct
 
 def index(request):
     products = Product.objects.all()
-    feat_products = FeatProduct.objects.all()
     Fiction_category = FeatProduct.objects.filter(IsFiction="True")
     nonFiction_category = FeatProduct.objects.filter(IsFiction="False")
 
@@ -54,8 +53,11 @@ def search(request):
     return HttpResponse("We are in search end point")
 
 
-def productview(request):
-    return render(request, 'shop/product_view.html')
+def productview(request, id):
+    product = Product.objects.filter(id=id)
+    print(product)
+    params = {'product': product}
+    return render(request, 'shop/product_view.html', params)
 
 
 def checkout(request):
