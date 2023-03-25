@@ -13,6 +13,26 @@
 
 
 </head>
+<style>
+    .button {
+  background-color: #0288d1;
+  border: none;
+  color: white;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin-left:638px;
+}
+
+.button:hover {
+  background-color: #01579b;
+  color: white;
+}
+
+</style>
 <body>
 
 
@@ -65,16 +85,16 @@
 </nav>
 
 <section class="arrivals" id="arrivals">
-    {% for %}
+    {% for prod_view in product %}
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide box">
                 <div class="image">
-                    <img src="/media/{{new_book.image}}" alt="{{new_book.product_name}}">
+                    <img src="/media/{{prod_view.image}}" alt="{{prod_view.product_name}}">
                 </div>
                 <div class="content">
-                    <h3>{{new_book.product_name}}</h3>
-                    <div class="price">₹{{new_book.product_price}}<span></span></div>
+                    <h3>{{prod_view.product_name}}</h3>
+                    <div class="price">₹{{prod_view.product_price}}<span></span></div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -83,9 +103,12 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
+                <button class="button" style="padding-left: 10px;padding-right:10px; width: 227p;">Add to Cart</button>
             </a>
         </div>
     </div>
+    {% endfor %}
+</section>
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

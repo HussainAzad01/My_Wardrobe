@@ -48,7 +48,7 @@ window.onscroll = () =>{
 
 var swiper = new Swiper(".books-slider", {
   loop:true,
-  centeredSlides: true,
+  centeredSlides: false,
   autoplay: {
     delay: 3000,
     disableOnInteraction: false,
@@ -69,7 +69,7 @@ var swiper = new Swiper(".books-slider", {
 var swiper = new Swiper(".featured-slider", {
   spaceBetween: 10,
   loop:true,
-  centeredSlides: true,
+  centeredSlides: false,
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
@@ -96,8 +96,8 @@ var swiper = new Swiper(".featured-slider", {
 
 var swiper = new Swiper(".arrivals-slider", {
   spaceBetween: 10,
-  loop:true,
-  centeredSlides: true,
+  loop:false,
+  centeredSlides: false,
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
@@ -119,7 +119,7 @@ var swiper = new Swiper(".reviews-slider", {
   spaceBetween: 10,
   grabCursor:true,
   loop:true,
-  centeredSlides: true,
+  centeredSlides: false,
   autoplay: {
     delay: 5000,
     disableOnInteraction: false,
