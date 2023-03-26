@@ -58,6 +58,8 @@ def productview(request):
     params = {'product': product}
     return render(request, 'shop/product_view.html', params)
 
+def viewing(request):
+    return render(request,'shop/viewing.html')
 
 def checkout(request):
     return render(request, 'shop/check_out.html')
