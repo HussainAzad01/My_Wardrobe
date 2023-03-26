@@ -10,9 +10,16 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
-
-
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.css' %}">
 </head>
+<style>
+    .none{
+    position:absolute;
+     top:40px;
+     right:15px;
+    }
+
+</style>
 <body>
 
 
@@ -38,9 +45,9 @@
 
     <div class="header-2">
         <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#arrivals">arrivals</a>
-            <a href="#reviews">reviews</a>
+            <a href="/shop">home</a>
+            <a href="/shop/#arrivals">arrivals</a>
+            <a href="/shop/#reviews">reviews</a>
             <a href="/shop/about">About Us</a>
             <a href="/shop/contact">Contact Us</a>
             <a href="/shop">My Orders</a>
@@ -65,16 +72,19 @@
 </nav>
 
 <section class="arrivals" id="arrivals">
-    {% for %}
+    {% for prod_view in product %}
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide box">
                 <div class="image">
-                    <img src="/media/{{new_book.image}}" alt="{{new_book.product_name}}">
+                    <img src="/media/{{prod_view.image}}" alt="{{prod_view.product_name}}">
                 </div>
                 <div class="content">
-                    <h3>{{new_book.product_name}}</h3>
-                    <div class="price">₹{{new_book.product_price}}<span></span></div>
+                    <h3 style="width:300px;">{{prod_view.product_name}}<br>
+                        <small>genre: {{prod_view.sub_category}}</small>
+                    </h3>
+
+                    <div class="price">₹{{prod_view.product_price}}<span></span></div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -83,9 +93,15 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
+                <div class="none">
+                    <button type="button" class="btn btn-primary" style="padding-left: 15px;padding-right: 15px;">Add to Wishlist</button><br>
+                    <button type="button" class="btn btn-primary" style="margin-left:15px;padding-left: 15px;padding-right: 15px;">Add to Cart</button>
+                </div>
             </a>
         </div>
     </div>
+    {% endfor %}
+</section>
 
 
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

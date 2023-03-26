@@ -53,9 +53,8 @@ def search(request):
     return HttpResponse("We are in search end point")
 
 
-def productview(request, id):
-    product = Product.objects.filter(id=id)
-    print(product)
+def productview(request):
+    product = Product.objects.all()
     params = {'product': product}
     return render(request, 'shop/product_view.html', params)
 
