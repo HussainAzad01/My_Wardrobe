@@ -10,9 +10,16 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
-
-
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.css' %}">
 </head>
+<style>
+    .none{
+    position:absolute;
+     top:40px;
+     right:15px;
+    }
+
+</style>
 <body>
 
 
@@ -86,9 +93,10 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
-
-                <button class="button" style="padding-left: 0px; padding-right:0px; width: 130px;height: 40px;">Add to Cart</button>
-                <button class="button" style="margin-up:10px; padding-left: 0px; padding-right:0px; width: 130px;height: 40px;">Add to Cart</button>
+                <div class="none">
+                    <button type="button" class="btn btn-primary" style="padding-left: 15px;padding-right: 15px;">Add to Wishlist</button><br>
+                    <button type="button" class="btn btn-primary" style="margin-left:15px;padding-left: 15px;padding-right: 15px;">Add to Cart</button>
+                </div>
             </a>
         </div>
     </div>
