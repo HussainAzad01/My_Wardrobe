@@ -60,7 +60,11 @@ def productview(request):
 
 def viewing(request, id):
     product = FeatProduct.objects.filter(id=id)
-    print(product)
+    params = {'product': product[0]}
+    return render(request, 'shop/viewing.html', params)
+
+def viewing2(request, id):
+    product = Product.objects.filter(id=id)
     params = {'product': product[0]}
     return render(request, 'shop/viewing.html', params)
 

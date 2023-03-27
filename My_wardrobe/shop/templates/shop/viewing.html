@@ -32,7 +32,7 @@
     position:absolute;
     top
     bottom:100px;
-    left:120px;
+    left:105px;
     }
 
     .content{
@@ -43,14 +43,14 @@
 
     .stars{
     position:absolute;
-    top:350px;
-    right:120px;
+    top:345px;
+    right:50px;
     }
 
     .price{
     position:absolute;
     top:310px;
-    left:-10px;
+    right:95px
     }
 
      .desc{
@@ -58,13 +58,17 @@
     top:110px;
     left:570px;
     right:40px;
-
     }
+
+    .bg-color {
+    height: 100%;
+    background-color: green;
+    background: linear-gradient(to left, white 50%, #f2f2f2 50%);
+}
+
 
 </style>
 <body>
-
-
 <header class="header">
 
     <div class="header-1">
@@ -109,18 +113,15 @@
     </a>
 </nav>
 
-<!--viewing section starts here-->
-
 <section class="arrivals" id="arrivals">
 <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="/media/{{product.image}}" style="min-height:450px; max-height:450px;" alt="{{product.product_name}}">
-                </div>
-
+            <a href="#" class="swiper-slide box bg-color">
+                     <div class="image">
+                    <img src="/media/{{product.image}}" style="max-width:300px; min-width:290px; min-height:450px; max-height:450px;" alt="{{product.product_name}}">
+                     </div>
                  <div class="desc" >
-                <p style="font-size:13px;color:black;">
+                <p style="height: 250px;width: 450px;font-size:13px;color:black;">
                     <strong>About Book: </strong><em>{{product.product_desc}}</em>
                 </p>
                  </div>
@@ -136,6 +137,7 @@
                         <i class="fas fa-star-half-alt"></i>
                     </div>
                 </div>
+
                  <div class="none">
                     <button type="button" id="cart{{prod_view.id}}" class="btn btn-primary" style="padding-left: 15px;padding-right: 15px;">Add to Cart</button>
                  </div>
@@ -153,6 +155,29 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <!-- custom js file link  -->
 <script src="{% static 'shop/script.js' %}"></script>
+
+<script>
+    if(localStorage.getItem('cart') == null){
+var cart = {};
+}
+else{
+cart = JSON.parse(localStorage.getItem('cart'));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+}
+$('.cart').click(function(){
+
+var idstr = this.id.toString();
+if (cart[idstr] != undefined){
+cart[idstr] = cart[idstr] + 1;
+}
+else{
+cart[idstr] = 1;
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+document.getElementById('cart').innerHTML = Object.keys(cart).length;
+});
+
+</script>
 
 </body>
 </html>
