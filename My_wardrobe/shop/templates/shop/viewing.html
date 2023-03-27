@@ -116,19 +116,18 @@
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide box">
                 <div class="image">
-                    <img src="{% static 'shop/book-4.png'%}" style="min-height:450px; max-height:450px;" alt="{{new_book.product_name}}">
+                    <img src="/media/{{product.image}}" style="min-height:450px; max-height:450px;" alt="{{product.product_name}}">
                 </div>
 
                  <div class="desc" >
                 <p style="font-size:13px;color:black;">
-                    <strong>About Book: </strong><em>A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover. The technical term for this physical arrangement is codex (plural, codices).parchment, vellum, or
-                    us, parchment, vellum, or paper) bound together and protected by a cover. The technical term for this physical arrangement is codex (plural, codic nd together and protected by a cover. The technical term for this physical arrangement is codex (plural, codi</em>
+                    <strong>About Book: </strong><em>{{product.product_desc}}</em>
                 </p>
                  </div>
 
                 <div class="content">
-                    <h3>Name: Hussain azad</h3>
-                    <div class="price">₹5932<span></span></div>
+                    <h3>{{product.product_name}}</h3>
+                    <div class="price">₹{{product.product_price}}<span></span></div>
                     <div class="stars" style="width:100px">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>

@@ -58,8 +58,11 @@ def productview(request):
     params = {'product': product}
     return render(request, 'shop/product_view.html', params)
 
-def viewing(request):
-    return render(request,'shop/viewing.html')
+def viewing(request, id):
+    product = FeatProduct.objects.filter(id=id)
+    print(product)
+    params = {'product': product[0]}
+    return render(request, 'shop/viewing.html', params)
 
 def checkout(request):
     return render(request, 'shop/check_out.html')
