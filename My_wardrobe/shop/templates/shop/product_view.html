@@ -1,169 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product View</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Product View Template</h1>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view</title>
+    <link rel="icon" href="{% static 'shop/logo4.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'shop/style.css' %}">
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.css' %}">
+</head>
+<style>
+    .none{
+    position:absolute;
+     top:40px;
+     right:15px;
+    }
+
+</style>
+<body>
 
 
-<div id="demo" class="carousel slide" data-ride="carousel">
-        <ul class="carousel-indicators">
-            <li data-target="demo" data-slide-to="0" class="active"></li>
-            <li data-target="demo" data-slide-to="1"></li>
-            <li data-target="demo" data-slide-to="2"></li>
-        </ul>
-        <div class="container carousel-inner no-padding" style="margin-left: 0px; margin-right: 0px;">
-            <div class="carousel-item active">
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
+<header class="header">
 
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
+    <div class="header-1">
 
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-            </div>
+        <a href="#" class="logo"><i class="fas fa-book"></i> PickaBook</a>
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search for the books here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
 
-            <div class="carousel-item">
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                 <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <div class="card" style="width: 18rem;">
-                      <img src="{% static 'shop/scroll3.jpg'%}" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                          </div>
-                    </div>
-                </div>
-            </div>
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="/shop/wishlist" class="fas fa-heart"></a>
+            <a href="/shop/cart" class="fas fa-shopping-cart">
+            <span class="badge"><span id="cart">0</span></span>
+            </a>
+            <div id="login-btn" class="fas fa-user"></div>
         </div>
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
+    </div>
+
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="/shop">home</a>
+            <a href="/shop/#arrivals">arrivals</a>
+            <a href="/shop/#reviews">reviews</a>
+            <a href="/shop/about">About Us</a>
+            <a href="/shop/contact">Contact Us</a>
+            <a href="/shop">My Orders</a>
+        </nav>
+    </div>
+
+
+</header>
+
+<!-- header section ends -->
+
+<!-- bottom navbar  -->
+
+<nav class="bottom-navbar">
+    <a href="#home">home</a>
+        <a href="#arrivals">arrivals</a>
+        <a href="#reviews">reviews</a>
+        <a href="/shop/about">About Us</a>
+        <a href="/shop/contact">Contact Us</a>
+        <a href="/shop">My Orders</a>
     </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-</div>
+</nav>
+
+<section class="arrivals" id="arrivals">
+    {% for prod_view in product %}
+    <div class="swiper arrivals-slider">
+        <div class="swiper-wrapper">
+            <a href="#" class="swiper-slide box">
+                <div class="image">
+                    <img src="/media/{{prod_view.image}}" alt="{{prod_view.product_name}}">
+                </div>
+                <div class="content">
+                    <h3 style="width:300px;">{{prod_view.product_name}}<br>
+                        <small>genre: {{prod_view.sub_category}}</small>
+                    </h3>
+
+                    <div class="price">₹{{prod_view.product_price}}<span></span></div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="none">
+                    <button type="button" class="btn btn-primary" style="padding-left: 15px;padding-right: 15px;">Add to Wishlist</button><br>
+                    <button type="button" class="btn btn-primary" style="margin-left:15px;padding-left: 15px;padding-right: 15px;">Add to Cart</button>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
 
 
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- custom js file link  -->
+<script src="{% static 'shop/script.js' %}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>

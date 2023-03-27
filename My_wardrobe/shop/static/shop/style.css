@@ -732,6 +732,24 @@ section{
 
 /* manually added css */
 
+.button {
+  background-color: #0288d1;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin-left:455px;
+}
+
+.button:hover {
+  background-color: #01579b;
+  color: white;
+}
+
+
 .badge{
     position: relative;
     top: -20px;
