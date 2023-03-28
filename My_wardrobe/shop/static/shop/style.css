@@ -438,8 +438,8 @@ section{
 .swiper-button-next,
 .swiper-button-prev{
     border:var(--border-hover);
-    height:4rem;
-    width:4rem;
+    height:3rem;
+    width:3rem;
     color:var(--black);
     background: #fff;
 }

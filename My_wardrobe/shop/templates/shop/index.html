@@ -216,7 +216,7 @@
         <div class="swiper-wrapper">
             {% for new_books in new_arrivals1 %}
             {% for new_book in new_books %}
-            <a href="#" class="swiper-slide box">
+            <a href="/shop/viewing/{{new_book.id}}" class="swiper-slide box">
                 <div class="image">
                     <img src="/media/{{new_book.image}}" alt="{{new_book.product_name}}">
                 </div>
@@ -242,7 +242,7 @@
         <div class="swiper-wrapper">
             {% for new_books in new_arrivals2 %}
             {% for new_book in new_books %}
-            <a href="#" class="swiper-slide box">
+            <a href="/shop/viewing/{{new_book.id}}" class="swiper-slide box">
                 <div class="image">
                     <img src="/media/{{new_book.image}}" alt="{{new_book.product_name}}">
                 </div>
