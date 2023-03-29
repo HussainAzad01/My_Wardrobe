@@ -46,6 +46,11 @@ def about(request):
 
 
 def contact(request):
+    user_name = request.POST.get('user_name', "")
+    user_tel = request.POST.get('user_tel', "")
+    user_email = request.POST.get('user_email', "")
+    user_feedback = request.POST.get('feedback', "")
+    print(user_name, user_tel, user_email, user_feedback)
     return render(request, 'shop/contact.html')
 
 
