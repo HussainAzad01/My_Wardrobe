@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product, FeatProduct
+from .models import Product, FeatProduct, contactus
 
 
 def index(request):
@@ -46,11 +46,26 @@ def about(request):
 
 
 def contact(request):
-    user_name = request.POST.get('user_name', "")
-    user_tel = request.POST.get('user_tel', "")
-    user_email = request.POST.get('user_email', "")
-    user_feedback = request.POST.get('feedback', "")
-    print(user_name, user_tel, user_email, user_feedback)
+    if request.method == "POST":
+        user_name = request.POST.get('user_name', "")
+        user_tel = request.POST.get('user_tel', "")
+        user_email = request.POST.get('user_email', "")
+        user_feedback = request.POST.get('feedback', "")
+        if user_name == "":
+            pass
+        else:
+            #this is also a way to add data to the data base by taking input from the user
+
+            # contactus.objects.create(
+            #     name=user_name,
+            #     email=user_email,
+            #     tel=user_tel,
+            #     desc=user_feedback
+            # )
+
+            contact = contactus(name=user_name, email=user_email,tel=user_tel, desc=user_feedback)
+            contact.save()
+
     return render(request, 'shop/contact.html')
 
 
