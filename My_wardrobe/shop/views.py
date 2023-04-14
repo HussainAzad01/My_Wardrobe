@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product, FeatProduct
+from .models import Product, FeatProduct, contactus
 
 
 def index(request):
@@ -24,14 +24,14 @@ def index(request):
 
 def create(request):
     p = FeatProduct.objects.create(
-        IsFiction=False,
-        category="Non-Fiction",
-        sub_category="Educational",
-        product_name="The Reluctant Carer",
-        product_price=199,
-        product_desc=" ",
-        publish_date=datetime.datetime(2023, 3, 24),
-        image="shop/images/The snakehead.jpg"
+        IsFiction=True,
+        category="Fiction",
+        sub_category="Hard-Science",
+        product_name="Weaponized",
+        product_price=279,
+        product_desc="Ursula has lived twice the normal human lifespan, courtesy of the latest technology. But now she’s struggling to find excitement and purpose, so signs up to the Polity’s military. But after botching a powerful new ammunition test, she’s dismissed from service. Hunting for a simpler, more meaningful existence, she heads for the stars. And after founding a colony on the hostile planet of Threpsis, Ursula finally feels alive. Then deadly raptors attack and the colonists are forced to adapt in unprecedented ways. The raptors also raise a deeply troubling question: how could the Polity miss these apex predators? And alien ruins?",
+        publish_date=datetime.datetime(2023, 4, 9),
+        image="shop/images/weaponized.jpg"
     )
 
 
@@ -46,6 +46,26 @@ def about(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        user_name = request.POST.get('user_name', "")
+        user_tel = request.POST.get('user_tel', "")
+        user_email = request.POST.get('user_email', "")
+        user_feedback = request.POST.get('feedback', "")
+        if user_name == "":
+            pass
+        else:
+            #this is also a way to add data to the data base by taking input from the user
+
+            # contactus.objects.create(
+            #     name=user_name,
+            #     email=user_email,
+            #     tel=user_tel,
+            #     desc=user_feedback
+            # )
+
+            contact = contactus(name=user_name, email=user_email,tel=user_tel, desc=user_feedback)
+            contact.save()
+
     return render(request, 'shop/contact.html')
 
 

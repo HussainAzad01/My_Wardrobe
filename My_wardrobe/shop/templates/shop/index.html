@@ -178,7 +178,9 @@
                         <small>genre: {{i.sub_category}}</small>
                     </h3>
                     <div class="price">₹{{i.product_price}}</div>
-                    <button id="pr{{i.id}}" class="btn cart">add to cart</button>
+                        <span id="divpr{{i.id}}" style="font-size:17px;">
+                            <button type="button" id="pr{{i.id}}" class="btn cart">add to cart</button>
+                        </span>
                 </div>
             </div>
             {% endfor %}
@@ -487,13 +489,6 @@
             <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
             <a href="#"> <i class="fas fa-arrow-right"></i> our services </a>
         </div>
-
-<!--        <div class="box">-->
-<!--            <h3>contact info</h3>-->
-<!--            <a href="#"> <i class="fas fa-phone"></i> +91-8871532029 </a>-->
-<!--            <a href="#"> <i class="fas fa-phone"></i> +91-xxxxxxxxxx </a>-->
-<!--            <a href="#"> <i class="fas fa-envelope"></i> hussainpius7@gmail.com </a>-->
-<!--        </div>-->
         
     </div>
 

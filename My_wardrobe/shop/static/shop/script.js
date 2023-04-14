@@ -161,20 +161,32 @@ var swiper = new Swiper(".blogs-slider", {
 
 if(localStorage.getItem('cart') == null){
 var cart = {};
+
 }
 else{
 cart = JSON.parse(localStorage.getItem('cart'));
 document.getElementById('cart').innerHTML = Object.keys(cart).length;
+update_cart(cart);
 }
+
 $('.cart').click(function(){
 
-var idstr = this.id.toString();
-if (cart[idstr] != undefined){
-cart[idstr] = cart[idstr] + 1;
-}
-else{
-cart[idstr] = 1;
-}
-localStorage.setItem('cart', JSON.stringify(cart));
-document.getElementById('cart').innerHTML = Object.keys(cart).length;
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined){
+    cart[idstr] = cart[idstr] + 1;
+    update_cart(cart);
+    }
+    else{
+    cart[idstr] = 1;
+    update_cart(cart);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length;
 });
+
+function update_cart(cart){
+    for (var item in cart){
+        document.getElementById('div'+item).innerHTML = "<button id='minus"+item +"' class='btn cart minus'>-</button><span id='val"+ item +"'>  "+ cart[item] +"  </span><button id='plus" + item +"' class='btn cart plus'>+</button>";
+
+    }
+}
