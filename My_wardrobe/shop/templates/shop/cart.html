@@ -1,46 +1,204 @@
+
+
+<!-- new page html from my page -->
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Cart Page</title>
-    <!-- <link rel="stylesheet" href="shop/static/shop/cart.css"> -->
-    ,<link rel="stylesheet" href="../../static/shop/cart.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1> My Cart</h1>
-      <table>
-        <thead>
-          <tr>
-            <th> product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td> <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/710ESoXqVPL.jpg"> </td>
-            <td>₹10.00</td>
-            <td><a href="#" class="previous round">&#8249;</a>2
-                <a href="#" class="next round">&#8250;</a></td>
-            <td>₹20.00</td>
-          </tr>
-          <tr>
-            <td> <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/710ESoXqVPL.jpg"> </td>
-            <td>₹15.00</td>
-            <td><a href="#" class="previous round">&#8249;</a>1
-                <a href="#" class="next round">&#8250;</a></td></td>
-            <td>₹15.00</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="3">Total</td>
-            <td>₹35.00</td>
-          </tr>
-        </tfoot>
-      </table>
-      <a href="#">Checkout</a>
+<html lang="en">
+{% load static %}
+<head>
+
+	<title>MY Cart</title>
+  <link rel="icon" href="{% static 'shop/logo4.png'%}" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="{% static 'shop/style.css' %}">
+
+
+</head>
+<style>
+h1 {
+	margin: 0;
+}
+
+main {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.cart {
+	background-color: #f8f3f3;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	margin-top: 0;
+}
+.tbl {
+  font-weight: bold;
+  font-size: 20px;
+
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+th, td {
+	padding: 10px;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+
+th {
+	background-color: #eee;
+}
+
+td input[type="number"] {
+	width: 50px;
+	text-align: center;
+	border: none;
+}
+
+tr:last-child td {
+	font-weight: bold;
+}
+
+tr:last-child td:first-child {
+	border-top: 2px solid #ccc;
+}
+
+.btn {
+	display: block;
+	background-color: #4149b5;
+	color: #fff;
+	text-align: center;
+	padding: 20px;
+	border-radius: 5px;
+	/* margin-right: auto; */
+  float: right;
+
+}
+
+img {
+    width:150px;
+    height:200px;
+
+  }
+</style>
+<body>
+
+
+<header class="header">
+
+    <div class="header-1">
+
+        <a href="#" class="logo"><i class="fas fa-book"></i> PickaBook</a>
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="search for the books here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="/shop/wishlist" class="fas fa-heart"></a>
+            <a href="/shop/" class="fas fa-home"></a>
+        </div>
     </div>
-  </body>
+
+    <div class="header-2">
+        <nav class="navbar">
+            <a href="/shop">home</a>
+            <a href="/shop/#arrivals">arrivals</a>
+            <a href="#reviews">reviews</a>
+            <a href="/shop/about">About Us</a>
+            <a href="/shop/contact">Contact Us</a>
+            <a href="/shop">My Orders</a>
+        </nav>
+    </div>
+
+
+  </header>
+
+  <!-- header section ends -->
+	<main>
+		<section class="cart">
+			<h2>Your Cart</h2>
+			<table class="tbl">
+				<thead>
+					<tr>
+						<th>Books</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/710ESoXqVPL.jpg"> </td>
+						<td>₹99</td>
+						<td><input type="number" min="1" value="1"></td>
+						<td>₹99</td>
+					</tr>
+					<tr>
+						<td><img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/710ESoXqVPL.jpg"> </td>
+						<td>₹99</td>
+						<td><input type="number" min="1" value="1"></td>
+						<td>₹99</td>
+					</tr>
+					<tr>
+						<td> <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/710ESoXqVPL.jpg"> </td>
+						<td>₹99</td>
+						<td><input type="number" min="1" value="1"></td>
+						<td>₹99</td>
+					</tr>
+					<tr>
+						<td colspan="3">Subtotal</td>
+						<td> ₹297 </td>
+					</tr>
+					<tr>
+						<td colspan="3">Delivery Charges</td>
+						<td>₹40</td>
+					</tr>
+					<tr>
+						<td colspan="3">Total</td>
+						<td>₹337</td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="#" class="btn">Checkout</a>
+		</section>
+	</main>
+<!-- footer section starts  -->
+
+<section class="footer">
+
+
+
+  <div class="share">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" class="fab fa-linkedin"></a>
+      <a href="#" class="fab fa-pinterest"></a>
+  </div>
+
+  <div class="credit">design & created by <span>Hussain & Ananya</span> | all rights reserved! </div>
+
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!-- custom js file link  -->
+<script src="{% static 'shop/script.js' %}"></script>
+
+
+
+
+</body>
 </html>
