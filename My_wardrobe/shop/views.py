@@ -1,7 +1,9 @@
 import datetime
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Product, FeatProduct, contactus
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 
 def index(request):
@@ -22,6 +24,47 @@ def index(request):
     return render(request, 'shop/index.html', params)
 
 
+def signup(request):
+    if request.method == "POST":
+        user_name = request.POST.get('user_name')
+        user_email = request.POST.get('user_email')
+        user_password = request.POST.get('user_password')
+        user_password_repeat = request.POST.get('user_password_repeat')
+
+        try:
+            if len(user_password) >= 8:
+                if user_password_repeat == user_password:
+                    if len(user_name) >= 3:
+                        user = User.objects.create(
+                            username=user_name,
+                            email=user_email,
+                            password=user_password,
+                        )
+                        user.last_login = datetime.datetime.now()
+                        user.save()
+                        return redirect("shop/login")
+
+                    else:
+                        error_msg = "User name is too short, try resolving mistakes"
+                        return render(request, "shop/signup.html", {"error_msg": error_msg})
+                else:
+                    error_msg = "Password didn't match, try resolving mistakes"
+                    return render(request, "shop/signup.html", {"error_msg": error_msg})
+            else:
+                error_msg = "Password should contain at least 8 characters, try resolving mistakes"
+                return render(request, "shop/signup.html", {"error_msg": error_msg})
+
+        except:
+            error_msg = "username already exists, Try with the different one!!"
+            return render(request, "shop/signup.html", {"error_msg": error_msg})
+
+    return render(request, 'shop/signup.html')
+
+
+def login(request):
+    return render(request, 'shop/login.html')
+
+
 def create(request):
     p = FeatProduct.objects.create(
         IsFiction=True,
@@ -38,8 +81,10 @@ def create(request):
 def cart(request):
     return render(request, 'shop/cart.html')
 
+
 def wishlist(request):
     return render(request, 'shop/wishlist.html')
+
 
 def about(request):
     return render(request, 'shop/about.html')
@@ -54,7 +99,7 @@ def contact(request):
         if user_name == "":
             pass
         else:
-            #this is also a way to add data to the data base by taking input from the user
+            # this is also a way to add data to the data base by taking input from the user
 
             # contactus.objects.create(
             #     name=user_name,
@@ -63,7 +108,7 @@ def contact(request):
             #     desc=user_feedback
             # )
 
-            contact = contactus(name=user_name, email=user_email,tel=user_tel, desc=user_feedback)
+            contact = contactus(name=user_name, email=user_email, tel=user_tel, desc=user_feedback)
             contact.save()
 
     return render(request, 'shop/contact.html')
@@ -78,15 +123,18 @@ def productview(request):
     params = {'product': product}
     return render(request, 'shop/product_view.html', params)
 
+
 def viewing(request, id):
     product = FeatProduct.objects.filter(id=id)
     params = {'product': product[0]}
     return render(request, 'shop/viewing.html', params)
 
+
 def viewing2(request, id):
     product = Product.objects.filter(id=id)
     params = {'product': product[0]}
     return render(request, 'shop/viewing.html', params)
+
 
 def checkout(request):
     return render(request, 'shop/check_out.html')
