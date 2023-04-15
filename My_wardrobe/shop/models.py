@@ -16,6 +16,7 @@ class Product(models.Model):
 
 
 class FeatProduct(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     IsFiction = models.BooleanField(default=True)
     category = models.CharField(max_length=50, default="")
     sub_category = models.CharField(max_length=50, default="")
